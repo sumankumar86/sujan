@@ -1,0 +1,153 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Contact Us</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}" />
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css' %}" />
+    <!-- summernote -->
+    <link rel="stylesheet" href="{% static 'plugins/summernote/summernote-bs4.css' %}" />
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'dist/css/contact.css' %}">
+</head>
+
+<body class="hold-transition layout-top-nav">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="{% url 'contactus' %}" class="nav-link">Contact</a>
+                </li>
+            </ul>
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+                <!-- Messages Dropdown Menu -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="{% url 'signout' %}">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Log Out</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.navbar -->
+        <div class="container box">
+            <div class="row">
+                <div class="col-sm-4 left-box">
+
+                    <h3>Let's get in touch</h3>
+                    <div class="contact-menu">
+                        <ul>
+                            <li>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-sm-2 down1">
+                                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="col-sm-10">
+                                            <span>Address: Gargi Memorial Institute Of Technology,
+                                                Balarampur, Baruipur, Kolkata-700144</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <br>
+                            <li>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-sm-2 down2">
+                                            <i class="fa fa-phone" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="col-sm-10">
+                                            <span>Phone: 9382660047</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li><br>
+                            <li>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-sm-2 down2">
+                                            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="col-sm-10">
+                                            <span>Email: gmit@gmail.com</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li><br>
+                            <li>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-sm-2 down2">
+                                            <i class="fa fa-globe" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="col-sm-10">
+                                            <span>Website: gmitkolkata.org</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="col-sm-8 right-box">
+                    <form>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="sub-text-box1">
+                                        <label>FULL NAME</label>
+                                        <div><input type="text" placeholder="Name*" name="name" required></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="sub-text-box2">
+                                        <label>EMAIL ADDRESS</label>
+                                        <div><input type="email" placeholder="Email*" name="email" required></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="sub-text-box3">
+                                        <label class="space">SUBJECT</label>
+                                        <div><input type="text" placeholder="Subject*" name="subject" value="" required>
+                                        </div>
+                                    </div>
+                                    <div class="sub-text-box3">
+                                        <label class="space">MESSAGE</label>
+                                        <div><textarea name="message" class="form-control" placeholder="Message*"
+                                                rows="3" required></textarea></div>
+                                    </div><br>
+                                    <div class="submit">
+                                        <button type="submit">Send Massage</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</body>

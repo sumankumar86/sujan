@@ -1,0 +1,190 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>{% block title %} STS {% endblock title %}</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}" />
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css' %}" />
+    <!-- summernote -->
+    <link rel=" stylesheet" href="{% static 'plugins/summernote/summernote-bs4.css' %}" />
+    <!-- Google Font: Source Sans Pro -->
+    <link href=" https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet" />
+</head>
+
+<body class="hold-transition layout-top-nav">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="student_profile.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="contact_us.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+                <!-- Messages Dropdown Menu -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="login.html">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Log Out</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.navbar -->
+        <div class="content-wrapper">
+            <div class="content-header">
+                <div class="container">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0 text-dark"> Student <small>Profile</small></h1>
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-3">
+
+                            <!-- Profile Image -->
+                            <div class="card card-primary card-outline">
+
+                                <div class="card-body box-profile">
+                                    <div class="text-center">
+                                        <img class="profile-user-img img-fluid img-circle"
+                                            src="{{StudentData.profilepic.url}}" alt="User profile picture">
+                                    </div>
+
+                                    <h3 class="profile-username text-center">{{StudentData.first_name}}
+                                        {{StudentData.last_name}}</h3>
+
+                                    <p class="text-muted text-center">{{StudentData.dept}}</p>
+
+                                    <ul class="list-group list-group-unbordered mb-3">
+                                        <li class="list-group-item">
+                                            <b>Year</b> <a class="float-right">{{StudentData.year}}</a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b>Sem</b> <a class="float-right">{{StudentData.semester}}</a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b>RollNo</b> <a class="float-right">{{StudentData.enrollment}}</a>
+                                        </li>
+                                    </ul>
+                                    <a type="button" class="btn btn-block btn-info btn-flat"
+                                        href="{% url 'student' %}">Profile</a>
+                                    <a type="button" class="btn btn-block btn-info btn-flat"
+                                        href="{% url 'activity' %}">Activity</a>
+                                    <a type="button" class="btn btn-block btn-info btn-flat"
+                                        href="{% url 'academic' %}">Academic</a>
+                                    <a type="button" class="btn btn-block btn-info btn-flat"
+                                        href="{% url 'category' %}">Category</a>
+                                    <a type="button" class="btn btn-block btn-info btn-flat"
+                                        href="{% url 'addquestion' %}">Add
+                                        Question</a>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+
+                            <!-- About Me Box -->
+                            <div class="card card-primary">
+
+                                <div class="card-header">
+                                    <h3 class="card-title">About Me</h3>
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <strong><i class="fas fa-book mr-1"></i> Education</strong>
+
+                                    <p class="text-muted">
+                                        B.S. in Computer Science from the University of Tennessee at Knoxville
+                                    </p>
+
+                                    <hr>
+
+                                    <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
+
+                                    <p class="text-muted">Malibu, California</p>
+
+                                    <hr>
+
+                                    <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
+
+                                    <p class="text-muted">
+                                        <span class="tag tag-danger">UI Design</span>
+                                        <span class="tag tag-success">Coding</span>
+                                        <span class="tag tag-info">Javascript</span>
+                                        <span class="tag tag-warning">PHP</span>
+                                        <span class="tag tag-primary">Node.js</span>
+                                    </p>
+
+                                    <hr>
+
+                                    <strong><i class="far fa-file-alt mr-1"></i> Projects</strong>
+
+                                    <p class="text-muted">
+                                        <span class="tag tag-danger">UI Design using WEB 2.0</span>
+                                        <span class="tag tag-success">Coding with C</span>
+                                        <span class="tag tag-info">Python</span>
+                                        <span class="tag tag-warning">Django</span>
+                                        <span class="tag tag-primary">Node.js</span>
+                                    </p>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+                        </div>
+
+                        {% block content %}
+                        {% endblock content %}
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <!-- jQuery -->
+    <script src="{% static 'plugins/jquery/jquery.min.js'%}"></script>
+    <!-- Bootstrap 4 -->
+    <script src="{% static 'plugins/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+    <script src="{% static 'plugins/toastr/toastr.min.js'%}"></script>
+    <!-- AdminLTE App -->
+    <script src="{% static 'dist/js/adminlte.min.js'%}"></script>
+    {% block script %}
+    {% endblock script %}
+    {% if messages %}
+    {% for message in messages %}
+    {% if message.tags == 'success'%}
+    <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}',{timeOut:5000})</script>
+    {% elif message.tags == 'info' %}
+    <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}',{timeOut:5000})</script>
+    {% elif message.tags == 'warning' %}
+    <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}',{timeOut:10000})</script>
+    {% elif message.tags == 'error' %}
+    <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}',{timeOut:10000})</script>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+
+    {% if form.errors %}
+    <script type=text/javascript>toastr.error('{{ form.errors|escape }}',{timeout:5000})</script>
+    {% endif %}
+</body>
+
+</html>

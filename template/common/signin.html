@@ -1,0 +1,100 @@
+{% extends 'core\authBase.html' %}
+
+{% block title%}
+{{ block.super }}-SignIn
+{% endblock title%}
+
+{% block content%}
+
+<div class="container register">
+    <div class="row">
+        <div class="col-md-3 register-left">
+            <img src="https://gmitkolkata.org/images/logo.jpg" alt="">
+            <h3>Welcome</h3>
+            <p>Log In or Register Here</p>
+            <a href="{% url 'signup' %}"><input type="submit" name="" value="Sign Up"></a><br>
+        </div>
+        <div class="col-md-9 register-right">
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade active show" id="student" role="tabpanel" aria-labelledby="student-tab">
+                    <h3 class="register-heading">Login</h3>
+                    <form class="row register-form justify-content-center" action="" method="POST">
+                        {% csrf_token %}
+                        <div class="col-md-9">
+                            <div class="form-group">
+                                {{form.username}}
+                                <!-- <input type="email" class="form-control" placeholder="Your Email *" name="sEmail"
+                                    value="" required> -->
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="form-group">
+                                {{form.password}}
+                                <!-- <input type="password" class="form-control" placeholder="Password *" name="sPassword"
+                                    value="" required> -->
+                            </div>
+                            <!-- <a href="#" onclick="document.getElementById('exampleModal').style.display='block';">Forget
+                                password?</a> -->
+                            <input type="submit" class="btnRegister" value="Sign In">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Request Password</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"
+                        onclick="document.getElementById('exampleModal').style.display='none';">&times;</span>
+                </button>
+            </div>
+            <form action="#" method="POST" onsubmit="document.getElementById('exampleModal').style.display='none';">
+
+                <div class="modal-body">
+                    <input type="email" name="email" id="email" class="form-control" value=""
+                        placeholder="Enter your email *" required>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-secondary" data-dismiss="modal">Send</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div> -->
+{% endblock content%}
+
+{% block script %}
+
+{% if messages %}
+{% for message in messages %}
+{% if message.tags == 'success'%}
+<script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+{% elif message.tags == 'info' %}
+<script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+{% elif message.tags == 'warning' %}
+<script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+{% elif message.tags == 'error' %}
+<script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+{% endif %}
+{% endfor %}
+{% endif %}
+
+<script>
+    window.onclick = function (event) {
+        var modal = document.getElementById('exampleModal');
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+{% if form.errors %}
+<script type=text/javascript>toastr.error('{{ form.errors|escape }}',{timeout:5000})</script>
+{% endif %}
+
+{% endblock script %}
